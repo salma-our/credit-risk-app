@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Analyse de Risque de Crédit Sectorielle{% endblock %}</title>
+    <link rel="icon" href="{{ url_for('static', filename='images/logo.svg') }}" type="image/svg+xml">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/variables.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/reset.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/layout.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/header.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/components.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/responsive.css') }}">
+    {% block extra_head %}{% endblock %}
+</head>
+<body>
+<div class="app-shell">
+    <header class="site-header">
+        <div class="site-header__bar">
+            <div class="brand">
+                <img class="brand__logo" src="{{ url_for('static', filename='images/logo-wafa.png') }}" alt="Wafa Gestion">
+                <div class="brand__text">
+                    <span class="brand__title">Analyse de Risque de Crédit</span>
+                    <span class="brand__subtitle">Plateforme sectorielle</span>
+                </div>
+            </div>
+            <nav class="site-nav" aria-label="Navigation principale">
+                <a href="{{ url_for('index') }}">Accueil</a>
+                <a href="#guide">Guide</a>
+                <a href="#support">Support</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            {% block content %}{% endblock %}
+        </div>
+    </main>
+
+    <p class="footer-note">Plateforme automatisée pour Banque, Industrie et Assurance</p>
+</div>
+
+<script src="{{ url_for('static', filename='js/utils.js') }}"></script>
+{% block scripts %}{% endblock %}
+</body>
+</html>

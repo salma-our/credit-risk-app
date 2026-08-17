@@ -1,0 +1,1 @@
+Code mort : jamais importé par `app.py` ni aucun autre module, et `altman.py`/`merton.py` utilisent des clés `financials` obsolètes (`passifs_courants`, `capitaux_propres`) qui n'existent plus depuis la refonte de `data_processing.py` — conservé ici pour référence plutôt que supprimé.

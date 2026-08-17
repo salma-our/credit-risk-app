@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block title %}Erreur {{ code }} — Analyse de Risque de Crédit{% endblock %}
+
+{% block content %}
+<section class="page-section" style="max-width: 560px; margin: var(--spacing-xl) auto; text-align: center;">
+    <h1 style="font-size: var(--size-h2); margin-bottom: var(--spacing-sm);">Erreur {{ code }}</h1>
+    <p class="text-muted" style="margin-bottom: var(--spacing-lg);">{{ message }}</p>
+    <a class="btn btn-primary" href="{{ url_for('index') }}">Retour à l'accueil</a>
+</section>
+{% endblock %}

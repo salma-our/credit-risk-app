@@ -1,0 +1,68 @@
+/* Reset minimal */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-primary);
+  font-size: var(--size-body);
+  font-weight: var(--weight-normal);
+  color: var(--text-dark);
+  background: var(--gray-light);
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+  color: inherit;
+}
+
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+a {
+  color: var(--primary-orange);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--primary-red);
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+h1, h2, h3, h4 {
+  font-weight: var(--weight-bold);
+  color: var(--dark);
+  line-height: 1.25;
+}

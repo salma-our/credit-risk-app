@@ -1,0 +1,47 @@
+/* Design tokens — palette, typographie, espacement */
+:root {
+  /* Couleurs */
+  --primary-orange: #f39c12;
+  --primary-orange-dark: #d98407;
+  --primary-red: #e74c3c;
+  --primary-red-dark: #c0392b;
+  --dark: #2c3e50;
+  --gray-light: #ecf0f1;
+  --gray-lighter: #fafafa;
+  --gray-border: #dfe4e6;
+  --white: #ffffff;
+  --text-dark: #2c3e50;
+  --text-light: #7f8c8d;
+
+  --success: #27ae60;
+  --danger: #e74c3c;
+  --warning: #f39c12;
+
+  --gradient-primary: linear-gradient(135deg, #f39c12 0%, #e74c3c 100%);
+
+  /* Typographie */
+  --font-primary: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+  --font-mono: 'Monaco', 'Consolas', 'Courier New', monospace;
+
+  --size-h1: 2.5rem;
+  --size-h2: 2rem;
+  --size-h3: 1.5rem;
+  --size-body: 1rem;
+  --size-small: 0.875rem;
+
+  --weight-normal: 400;
+  --weight-semibold: 600;
+  --weight-bold: 700;
+
+  /* Espacement */
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 1rem;
+  --spacing-md: 1.5rem;
+  --spacing-lg: 2rem;
+  --spacing-xl: 3rem;
+
+  /* Divers */
+  --radius: 4px;
+  --shadow-card: 0 1px 3px rgba(0, 0, 0, 0.1);
+  --transition-fast: 0.2s ease;
+}

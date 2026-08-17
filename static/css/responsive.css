@@ -1,0 +1,53 @@
+/* Media queries — mobile-first overrides pour tablette / desktop */
+
+/* Mobile (< 768px) : styles par défaut déjà appliqués ailleurs. On y force
+   ici les cas où une règle desktop existe par défaut dans components/layout. */
+@media (max-width: 767px) {
+  .hero h1 {
+    font-size: 1.75rem;
+  }
+
+  .grid--3,
+  .chart-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .grid--2 {
+    grid-template-columns: 1fr;
+  }
+
+  .site-nav {
+    display: none;
+  }
+
+  .btn {
+    width: 100%;
+  }
+
+  .actions-row {
+    flex-direction: column;
+  }
+
+  .card {
+    padding: var(--spacing-md);
+  }
+
+  .score-panel__value {
+    font-size: 2.25rem;
+  }
+}
+
+/* Tablette (768px - 1024px) */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .grid--3,
+  .chart-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .btn {
+    padding: 14px 28px;
+  }
+}
+
+/* Desktop (> 1024px) : valeurs par défaut de layout.css/components.css
+   s'appliquent (grid--3 = 3 colonnes). */

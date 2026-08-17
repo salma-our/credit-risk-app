@@ -1,0 +1,67 @@
+/* En-tête */
+
+.site-header {
+  background: var(--white);
+  border-bottom: 1px solid var(--gray-border);
+}
+
+.site-header__bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--spacing-sm) var(--spacing-md);
+  max-width: 960px;
+  margin: 0 auto;
+  gap: var(--spacing-md);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+}
+
+.brand__logo {
+  height: 42px;
+  width: auto;
+  flex-shrink: 0;
+}
+
+.brand__text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+}
+
+.brand__title {
+  font-weight: var(--weight-bold);
+  font-size: 1.125rem;
+  color: var(--dark);
+}
+
+.brand__subtitle {
+  font-size: 0.75rem;
+  color: var(--text-light);
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.site-nav {
+  display: flex;
+  gap: var(--spacing-md);
+}
+
+.site-nav a {
+  color: var(--text-light);
+  font-size: var(--size-small);
+  font-weight: var(--weight-semibold);
+  padding: var(--spacing-xs) 0;
+  border-bottom: 2px solid transparent;
+  transition: color var(--transition-fast), border-color var(--transition-fast);
+}
+
+.site-nav a:hover,
+.site-nav a:focus-visible {
+  color: var(--primary-orange);
+  border-bottom-color: var(--primary-orange);
+}

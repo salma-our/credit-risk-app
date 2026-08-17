@@ -1,0 +1,103 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="page-nav">
+    <button type="button" class="btn btn-secondary" id="historyToggleBtn">Afficher l'historique</button>
+</div>
+
+<section id="uploadSection" class="page-section">
+    <div class="hero">
+        <h1>Analyse de Risque de Crédit Sectorielle</h1>
+        <p>Plateforme automatisée pour Banque, Industrie et Assurance</p>
+    </div>
+
+    <div class="card">
+        <form id="analysisForm" enctype="multipart/form-data" novalidate>
+            <div class="field">
+                <label for="companyName">Nom de l'entreprise</label>
+                <input type="text" id="companyName" name="company_name" placeholder="Ex: Acme Corp" required>
+            </div>
+
+            <div class="field">
+                <label for="fileInput">Fichier Excel</label>
+                <div class="dropzone" id="dropzone" tabindex="0" role="button" aria-describedby="dropzoneMeta">
+                    <svg class="dropzone__icon" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                        <path d="M12 16V4M12 4L7 9M12 4l5 5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M4 16v3a1 1 0 001 1h14a1 1 0 001-1v-3" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <div class="dropzone__title">Téléchargez votre fichier Excel (ou déposez-le ici)</div>
+                    <div class="dropzone__meta" id="dropzoneMeta">Fichier attendu : .xlsx — Taille max : 10 MB</div>
+                    <button type="button" class="btn btn-secondary" id="browseBtn">Parcourir</button>
+                    <div class="dropzone__filename" id="dropzoneFilename"></div>
+                    <input type="file" id="fileInput" name="file" accept=".xlsx,.xls" hidden required>
+                </div>
+                <span class="field-error" id="fileError" role="alert"></span>
+            </div>
+
+            <div class="field">
+                <label for="sectorSelect">Secteur</label>
+                <select id="sectorSelect" name="sector" required>
+                    <option value="">-- Sélectionner --</option>
+                    <option value="banking">Banque</option>
+                    <option value="industry">Industrie</option>
+                    <option value="insurance">Assurance</option>
+                </select>
+            </div>
+
+            <div class="field" id="subSectorGroup" hidden>
+                <label for="subSectorSelect">Sous-secteur (optionnel)</label>
+                <select id="subSectorSelect" name="sub_sector">
+                    <option value="">-- Standard (aucun) --</option>
+                    <option value="mining">Extraction / Minier</option>
+                    <option value="manufacturing">Fabrication / Manufacturing</option>
+                    <option value="services">Services / Immatériel</option>
+                </select>
+                <small class="hint">Ajuste les benchmarks (ex : rotation des actifs) selon l'intensité capitalistique du sous-secteur.</small>
+            </div>
+
+            <hr class="divider">
+
+            {# Champs générés par static/js/governance.js selon le secteur sélectionné
+               (les critères de gouvernance et leurs clés diffèrent par secteur, cf.
+               modules/sectors.py -> governance_weights) #}
+            <details class="governance-section" id="governanceSection" hidden>
+                <summary class="governance-summary">
+                    <strong>Gouvernance</strong>
+                    <small class="text-muted">(optionnel — votre évaluation qualitative remplace la valeur de référence du secteur)</small>
+                </summary>
+                <div class="governance-fields" id="governanceFields"></div>
+            </details>
+
+            <button type="submit" class="btn btn-primary btn-block">Analyser</button>
+        </form>
+
+        <hr class="divider">
+        <p class="text-muted">Format : Excel (.xlsx) — Contient : Bilan, Compte de résultat — Historique : 1 à 5 exercices</p>
+    </div>
+</section>
+
+<section id="loadingSection" class="page-section loading-panel" hidden aria-live="polite">
+    <div class="spinner" role="status" aria-label="Chargement"></div>
+    <p><strong>Analyse en cours...</strong></p>
+    <p class="text-muted">Calcul de la notation sectorielle pondérée.</p>
+</section>
+
+{% include "analysis.html" %}
+{% include "history.html" %}
+
+<section id="errorSection" class="page-section" hidden aria-live="assertive">
+    <div class="alert alert-danger">
+        <h4>Erreur</h4>
+        <p id="errorMessage">--</p>
+    </div>
+    <button type="button" class="btn btn-secondary" id="retryBtn" style="margin-top: var(--spacing-md);">Recommencer</button>
+</section>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/upload.js') }}"></script>
+<script src="{{ url_for('static', filename='js/governance.js') }}"></script>
+<script src="{{ url_for('static', filename='js/analysis.js') }}"></script>
+<script src="{{ url_for('static', filename='js/history.js') }}"></script>
+<script src="{{ url_for('static', filename='js/app.js') }}"></script>
+{% endblock %}

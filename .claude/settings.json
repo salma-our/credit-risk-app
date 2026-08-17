@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(venv/Scripts/python.exe -c ' *)",
+      "Bash(venv/Scripts/python.exe -m pip install --quiet pymupdf)",
+      "Bash(python -m py_compile modules/reports.py modules/sectors.py modules/rating_engine.py modules/ratios.py modules/data_processing.py)",
+      "Bash(python -c ' *)"
+    ]
+  }
+}

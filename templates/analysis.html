@@ -1,0 +1,75 @@
+{# Section "Résultats" — peuplée dynamiquement par static/js/analysis.js après /analyze #}
+<section id="resultsSection" class="page-section" hidden aria-live="polite">
+    <h2 class="section-title">Résultats analyse</h2>
+    <p class="text-muted" style="margin-bottom: var(--spacing-lg);">
+        Entreprise : <strong id="resultCompanyName">--</strong>
+        &nbsp;|&nbsp; Secteur : <span id="resultSectorName">--</span>
+        &nbsp;|&nbsp; Date : <span id="resultDate">--</span>
+    </p>
+
+    <div class="score-panel">
+        <div class="score-panel__value" id="finalScoreValue">-- <span>/ 5.0</span></div>
+        <div class="score-panel__category" id="finalCategory">--</div>
+    </div>
+
+    <div class="coverage-info" id="coverageInfo" hidden>
+        <div class="coverage-info__row">
+            <span class="coverage-info__label" id="coverageLabel">--</span>
+            <div class="coverage-info__bar"><div class="coverage-info__bar-fill" id="coverageBarFill"></div></div>
+            <span class="coverage-info__percent" id="coveragePercent">--</span>
+        </div>
+    </div>
+
+    <hr class="divider">
+
+    <div class="grid grid--2">
+        <div>
+            <h3 class="section-title">Principaux facteurs positifs</h3>
+            <ul class="factor-list factor-list--positive" id="positiveFactors"></ul>
+        </div>
+        <div>
+            <h3 class="section-title">Principaux facteurs négatifs</h3>
+            <ul class="factor-list factor-list--negative" id="negativeFactors"></ul>
+        </div>
+    </div>
+
+    <h3 class="section-title" style="margin-top: var(--spacing-lg);">KPI clés</h3>
+    <div class="grid grid--3" id="kpiGrid"></div>
+
+    <h3 class="section-title" style="margin-top: var(--spacing-lg);">Données financières</h3>
+    <table class="data-table">
+        <tr><td>Total Actifs</td><td id="totalAssets">--</td></tr>
+        <tr><td>Total Dettes</td><td id="totalDebt">--</td></tr>
+        <tr><td>Capitaux Propres</td><td id="equity">--</td></tr>
+        <tr><td>Revenus</td><td id="revenue">--</td></tr>
+        <tr><td>Résultat Net</td><td id="netIncome">--</td></tr>
+    </table>
+
+    <div class="actions-row" style="margin-top: var(--spacing-lg);">
+        <a id="pdfLink" class="btn btn-primary" href="#" download hidden>Télécharger le rapport PDF</a>
+        <button type="button" class="btn btn-secondary" id="viewAllChartsBtn">Voir tous les graphiques</button>
+    </div>
+
+    <div id="chartsSection" hidden>
+        <hr class="divider">
+        <h3 class="section-title">Graphiques clés</h3>
+        <div class="chart-grid" id="chartGrid"></div>
+    </div>
+
+    <div class="actions-row" style="margin-top: var(--spacing-xl);">
+        <button type="button" class="btn btn-secondary" id="newAnalysisBtn">Nouvelle analyse</button>
+    </div>
+</section>
+
+<div class="modal-overlay" id="chartModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" hidden>
+    <div class="modal">
+        <button type="button" class="modal__close" id="modalCloseBtn" data-close-modal aria-label="Fermer">&times;</button>
+        <div class="modal__number" id="modalNumber">--</div>
+        <h3 class="modal__title" id="modalTitle">--</h3>
+        <img id="modalImage" src="" alt="">
+        <p class="modal__narrative" id="modalNarrative"></p>
+        <div class="modal__actions">
+            <button type="button" class="btn btn-secondary" data-close-modal="1">Fermer</button>
+        </div>
+    </div>
+</div>
